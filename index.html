@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SEI</title>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="68665054-df85-44e5-8568-dca779fca42f"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Times New Roman', serif;
+      background-image: url("background-pc.jpg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      background-color: #f9f5eb;
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo {
+      width: 130px;
+      margin-bottom: 140px;
+    }
+
+    .button-group {
+      margin-top: -40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .button {
+      width: 120px;
+      margin: 16px 0;
+    }
+
+    @media screen and (max-width: 768px) {
+      body {
+        background-image: url("background.jpg");
+        background-size: cover;
+        justify-content: center;
+      }
+
+      .logo {
+        width: 80px;
+        margin-bottom: 100px;
+      }
+
+      .button {
+        width: 70px;
+        margin: 16px 0;
+      }
+
+      .button-group {
+        margin-top: -30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <img src="logo1.svg" alt="SEI Logo" class="logo">
+
+  <div class="button-group">
+    <a href="https://seiceramic.shop" target="_blank" data-umami-event="링크페이지-샵">
+      <img src="shop.svg" alt="Shop" class="button">
+    </a>
+
+    <a href="https://seiceramic.shop/product/list.html?cate_no=45" target="_blank" data-umami-event="링크페이지-클래스">
+      <img src="class1.svg" alt="Class" class="button">
+    </a>
+  </div>
+
+  <script>
+    // 프로필 짧은 주소(/semini 등)에서 넘어온 utm 이름표를 샵·클래스 링크에 그대로 이어 붙인다
+    (function () {
+      var here = new URLSearchParams(location.search);
+      var keys = ["utm_source", "utm_medium", "utm_campaign", "utm_content"];
+      document.querySelectorAll(".button-group a").forEach(function (a) {
+        var u = new URL(a.href);
+        keys.forEach(function (k) { if (here.get(k)) u.searchParams.set(k, here.get(k)); });
+        a.href = u.toString();
+        if (here.get("utm_content")) a.setAttribute("data-umami-event-from", here.get("utm_content"));
+      });
+    })();
+  </script>
+</body>
+</html>
